@@ -9,6 +9,11 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     String JSON_STRING = "{\"transaction\":{\"food\":\"hamburger\",\"calories\":666\",\"date\":test}}";
@@ -24,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    mTextMessage.setText("Hello");
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    mTextMessage.setText("World");
                     return true;
             }
             return false;
@@ -57,8 +62,13 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         mTextMessage = (TextView) findViewById(R.id.message);
+        JSONObject jsonObject=ReadFromFile.readFromFileToJSON(this);
+        try {
+            System.out.println(jsonObject.getJSONArray("foodData").getJSONObject(0).get("foodName"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
