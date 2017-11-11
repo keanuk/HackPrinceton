@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">HackPrinceton</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">Calories</string>
+    <string name="title_home">History</string>
+    <string name="title_dashboard">Stats</string>
+    <string name="food">Food</string>
+    <string name="calories">Calories</string>
+    <string name="date">Date</string>
 </resources>
