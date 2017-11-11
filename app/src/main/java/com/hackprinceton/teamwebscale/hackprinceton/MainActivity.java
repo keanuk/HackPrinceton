@@ -29,10 +29,8 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText("Hello");
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText("World");
                     return true;
             }
             return false;
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         JSONObject jsonObject=ReadFromFile.readFromFileToJSON(this);
         try {
-            System.out.println(jsonObject.getJSONArray("foodData").getJSONObject(0).get("foodName"));
+            System.out.println(jsonObject.getJSONArray("foodData"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
