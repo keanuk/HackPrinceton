@@ -62,21 +62,21 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             for(int i=0; i<fullData.length(); i++) {
-                foodArray[i] = fullData.getJSONObject(i).getString("foodName");
-                calArray[i] = fullData.getJSONObject(i).getString("calories");
-                dateArray[i] = fullData.getJSONObject(i).getString("date");
+                foodArray[i] = "Food: " + fullData.getJSONObject(i).getString("foodName");
+                calArray[i] = "Calories: " + fullData.getJSONObject(i).getString("calories");
+                dateArray[i] = "Date: " + fullData.getJSONObject(i).getString("date");
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        ArrayAdapter<String> foodAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,foodArray);
-        ArrayAdapter<String> calAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,calArray);
-        ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,android.R.id.text1,dateArray);
+        ArrayAdapter<String> foodAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2,android.R.id.text1,foodArray);
+        ArrayAdapter<String> calAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2,android.R.id.text1,calArray);
+        ArrayAdapter<String> dateAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2,android.R.id.text1,dateArray);
 
         myFood.setAdapter(foodAdapter);
         myCal.setAdapter(calAdapter);
-        myDate.setAdapter(dateAdapter);
+//        myDate.setAdapter(dateAdapter);
 
 //        try {
 //            food = transaction.getString("food");
